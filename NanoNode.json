@@ -77,6 +77,20 @@
                             "priority": 100,
                             "direction": "Outbound"
                         }
+                    },
+                    {
+                        "name": "Inbound_SSH_Any",
+                        "properties": {
+                            "description": "Inbound SSH from Any",
+                            "protocol": "*",
+                            "sourcePortRange": "22",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound"
+                        }
                     }
                 ]
             }
