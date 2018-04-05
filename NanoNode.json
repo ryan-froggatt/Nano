@@ -204,7 +204,7 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [
-                        ""
+                        "https://raw.githubusercontent.com/ryan-froggatt/Nano/master/NanoNodeInstall.sh"
                     ],
                     "commandToExecute": "sh NanoNodeInstall.sh"
                 }
