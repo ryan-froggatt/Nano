@@ -31,14 +31,14 @@ mkdir nano && cd nano
 
 echo 'version: "3"
 services:
-  NanoNodeMonitor:
+  NodeMonitor:
     image: "nanotools/nanonodemonitor"
     restart: "unless-stopped"
     ports:
      - "80:80"
     volumes:
      - "~:/opt"
-  NanoNode:
+  Node:
     image: "nanocurrency/nano"
     restart: "unless-stopped"
     ports:
@@ -50,13 +50,14 @@ services:
 
 sudo docker-compose up -d
 
-#Configure Command Line Alias
+#Configure Rai Command Line Alias
 echo '
 #Rai/Nano Command Alias
-alias rai="sudo docker exec nano_NanoNode_1 /usr/bin/rai_node"' >> .bashrc
+alias rai="sudo docker exec nano_Node_1 /usr/bin/rai_node"' >> .bashrc
 source .bashrc
 
-#Configure Nano wallet
+#Configure Nano Wallet
+sleep 30
 WalletResponse=$(curl -d '{ "action" : "wallet_create" }' [::1]:7076)
 Wallet=$(echo $WalletResponse  | jq '.wallet')
 
@@ -117,7 +118,7 @@ $cacheTimeToLive = 30;
 // ----------- Nano Node Variables -----------
 
 // ip address for RPC (default: [::1])
-$nanoNodeRPCIP   = "[::1]";
+$nanoNodeRPCIP   = "nano_Node_1";
 
 // ip address for RPC (default: 7076)
 $nanoNodeRPCPort = "7076";
