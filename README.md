@@ -2,14 +2,12 @@
 
 [![Deploy to Azure](/Images/azure_deploy.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fryan-froggatt%2FNano%2Fmaster%2FNanoNodeAzure.json)
 
-
-
 [![Deploy to Azure](/Images/azure_view.png)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fryan-froggatt%2FNano%2Fmaster%2FNanoNodeAzure.json)
 
-This template creates an Ubuntu Virtual Machine running the Docker Containers:
-Nano Node (nanocurrency/nano)
-Nano Node Monitor (nanotools/nanonodemonitor)
-WatchTower (v2tec/watchtower)
+This template creates an Ubuntu Virtual Machine running the Docker Containers:<br/>
+Nano Node (nanocurrency/nano)<br/>
+Nano Node Monitor (nanotools/nanonodemonitor)<br/>
+WatchTower (v2tec/watchtower)<br/>
 
 ![Diagram](/Images/AzureSolution.png)
 
@@ -18,10 +16,10 @@ WatchTower (v2tec/watchtower)
 
 [![Deploy to AWS](/Images/aws_view.png)](https://console.aws.amazon.com/cloudformation/designer/home?region=eu-west-2&&templateUrl=https://s3.eu-west-2.amazonaws.com//nano-templates/NanoNodeAWS.json)
 
-This template creates an Ubuntu EC2 Instance running the Docker Containers:
-Nano Node (nanocurrency/nano)
-Nano Node Monitor (nanotools/nanonodemonitor)
-WatchTower (v2tec/watchtower)
+This template creates an Ubuntu EC2 Instance running the Docker Containers:<br/>
+Nano Node (nanocurrency/nano)<br/>
+Nano Node Monitor (nanotools/nanonodemonitor)<br/>
+WatchTower (v2tec/watchtower)<br/>
 
-![Diagram](/LogicMonitor-Collector-No-PublicIP/CreateLMCollector.png)
+![Diagram](/Images/AWSSolution.png)
 
