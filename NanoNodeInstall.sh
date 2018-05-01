@@ -14,24 +14,43 @@ sudo apt-get install -y docker-ce
 sudo apt-get install -y jq
 
 
-#Install Nano Node
+#Get Docker Images
+sudo docker pull nanotools/nanonodemonitor
 sudo docker pull nanocurrency/nano:latest
-sudo docker run -d --name NanoNode -p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076 -v /root nanocurrency/nano
+sudo docker pull v2tec/watchtower
 
 #Install WatchTower
-sudo docker pull v2tec/watchtower
 docker run -d --name WatchTower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower
 
-#Install Node Monitor
-sudo docker pull nanotools/nanonodemonitor
-volume="~:/opt"
-sudo docker run -d --name NanoNodeMonitor -p 80:80 -v volume --restart=unless-stopped nanotools/nanonodemonitor
+#Create Docker Compose for Node and Monitor
+mkdir nano && cd nano
 
+echo '
+version: '3'
+services:
+  monitor:
+    image: "nanotools/nanonodemonitor"
+    restart: "unless-stopped"
+    ports:
+     - "80:80"
+    volumes:
+     - "~:/opt"
+  NanoNode:
+    image: "nanocurrency/nano"
+    restart: "unless-stopped"
+    ports:
+     - "7075:7075/udp"
+     - "7075:7075"
+     - ":::7076:7076"
+    volumes:
+     - "~:/root"' | sudo tee docker-compose.yml
+
+sudo docker-compose up -d
 
 #Configure Command Line Alias
 echo '
 #Rai/Nano Command Alias
-alias rai="sudo docker exec Nanonode /usr/bin/rai_node"' >> .bashrc
+alias rai="sudo docker exec NanoNode /usr/bin/rai_node"' >> .bashrc
 source .bashrc
 
 #Configure Nano wallet
@@ -45,7 +64,7 @@ HostName=$(hostname)
 
 
 #Configure Node Monitor
-cd /nanoNodeMonitor
+cd /root/nanoNodeMonitor
 sudo cp config.php config.orig.php
 sudo rm config.php
 echo '<?php
