@@ -16,12 +16,21 @@ sudo apt-get install -y jq
 
 #Install Nano Node
 sudo docker pull nanocurrency/nano:latest
-Container=$(sudo docker run -d -p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076 -v ~:/root nanocurrency/nano)
+sudo docker run -d --name NanoNode -p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076 -v ~:/root nanocurrency/nano
+
+#Install WatchTower
+sudo docker pull v2tec/watchtower
+docker run -d --name WatchTower -v /var/run/docker.sock:/var/run/docker.sock v2tec/watchtower
+
+#Install Node Monitor
+sudo docker pull nanotools/nanonodemonitor
+sudo docker run -d --name NanoNodeMonitor -p 80:80 -v ~:/opt --restart=unless-stopped nanotools/nanonodemonitor
+
 
 #Configure Command Line Alias
 echo '
 #Rai/Nano Command Alias
-alias rai="sudo docker exec '$Container' /usr/bin/rai_node"' >> ~/.bashrc
+alias rai="sudo docker exec Nanonode /usr/bin/rai_node"' >> ~/.bashrc
 source ~/.bashrc
 
 #Configure Nano wallet
@@ -33,10 +42,6 @@ Account=$(echo $AccountResponse | jq '.account')
 
 HostName=$(hostname)
 
-
-#Install Node Monitor
-sudo docker pull nanotools/nanonodemonitor
-sudo docker run -d -p 80:80 -v ~:/opt --restart=unless-stopped nanotools/nanonodemonitor
 
 #Configure Node Monitor
 cd /root/nanoNodeMonitor
