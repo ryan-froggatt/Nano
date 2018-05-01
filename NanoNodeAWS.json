@@ -33,7 +33,7 @@
             "AllowedValues" : ["t2.medium", "m5.large", "m5.xlarge"]
         },
         "ImageID": {
-			"Description": "Specify Latest Linux Ubuntu 16.04 AMI ID",
+			"Description": "Specify Latest Linux Ubuntu 16.04 AMI ID for you Region",
             "Type" : "String",
             "Default" : "ami-f4f21593"
         }
