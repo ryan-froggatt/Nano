@@ -53,7 +53,7 @@ sudo docker-compose up -d
 #Configure Rai Command Line Alias
 echo '
 #Rai/Nano Command Alias
-alias rai="sudo docker exec nano_Node_1 /usr/bin/rai_node"' >> .bashrc
+alias rai="sudo docker exec nano_Node_1 /usr/bin/rai_node"' | sudo tee -a .bashrc
 source .bashrc
 
 #Configure Nano Wallet
