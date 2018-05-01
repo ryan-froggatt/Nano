@@ -1,4 +1,7 @@
 
+#Enter root directory
+cd /root
+
 #Install Dependencies
 #Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -36,7 +39,7 @@ sudo docker pull nanotools/nanonodemonitor
 sudo docker run -d -p 80:80 -v ~:/opt --restart=unless-stopped nanotools/nanonodemonitor
 
 #Configure Node Monitor
-cd nanoNodeMonitor
+cd /root/nanoNodeMonitor
 sudo cp config.php config.orig.php
 sudo rm config.php
 echo '<?php
