@@ -16,7 +16,7 @@ sudo apt-get install -y jq
 
 #Install Nano Node
 sudo docker pull nanocurrency/nano:latest
-sudo docker run -d --name NanoNode -p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076 -v ~:/root nanocurrency/nano
+sudo docker run -d --name NanoNode -p 7075:7075/udp -p 7075:7075 -p [::1]:7076:7076 -v /root nanocurrency/nano
 
 #Install WatchTower
 sudo docker pull v2tec/watchtower
@@ -24,7 +24,7 @@ docker run -d --name WatchTower -v /var/run/docker.sock:/var/run/docker.sock v2t
 
 #Install Node Monitor
 sudo docker pull nanotools/nanonodemonitor
-sudo docker run -d --name NanoNodeMonitor -p 80:80 -v ~:/opt --restart=unless-stopped nanotools/nanonodemonitor
+sudo docker run -d --name NanoNodeMonitor -p 80:80 -v /opt --restart=unless-stopped nanotools/nanonodemonitor
 
 
 #Configure Command Line Alias
