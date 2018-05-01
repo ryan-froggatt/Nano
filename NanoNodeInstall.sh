@@ -24,7 +24,8 @@ docker run -d --name WatchTower -v /var/run/docker.sock:/var/run/docker.sock v2t
 
 #Install Node Monitor
 sudo docker pull nanotools/nanonodemonitor
-sudo docker run -d --name NanoNodeMonitor -p 80:80 -v ~:/opt --restart=unless-stopped nanotools/nanonodemonitor
+volume="~:/opt"
+sudo docker run -d --name NanoNodeMonitor -p 80:80 -v volume --restart=unless-stopped nanotools/nanonodemonitor
 
 
 #Configure Command Line Alias
