@@ -1,4 +1,4 @@
-# Nano Node
+# Nano Node ![Nano Logo](/Images/Nano.jpg)
 
 [![Deploy to Azure](/Images/azure_deploy.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fryan-froggatt%2FNano%2Fmaster%2FNanoNodeAzure.json)
 
