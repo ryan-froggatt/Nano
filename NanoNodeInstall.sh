@@ -10,6 +10,10 @@ sudo apt-get update
 apt-cache policy docker-ce
 sudo apt-get install -y docker-ce
 
+#Docker Compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
 #JQ
 sudo apt-get install -y jq
 
@@ -25,10 +29,9 @@ docker run -d --name WatchTower -v /var/run/docker.sock:/var/run/docker.sock v2t
 #Create Docker Compose for Node and Monitor
 mkdir nano && cd nano
 
-echo '
-version: '3'
+echo 'version: "3"
 services:
-  monitor:
+  NanoNodeMonitor:
     image: "nanotools/nanonodemonitor"
     restart: "unless-stopped"
     ports:
@@ -50,7 +53,7 @@ sudo docker-compose up -d
 #Configure Command Line Alias
 echo '
 #Rai/Nano Command Alias
-alias rai="sudo docker exec NanoNode /usr/bin/rai_node"' >> .bashrc
+alias rai="sudo docker exec nano_NanoNode_1 /usr/bin/rai_node"' >> .bashrc
 source .bashrc
 
 #Configure Nano wallet
