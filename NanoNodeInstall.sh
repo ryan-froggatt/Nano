@@ -24,14 +24,14 @@ docker run -d --name WatchTower -v /var/run/docker.sock:/var/run/docker.sock v2t
 
 #Install Node Monitor
 sudo docker pull nanotools/nanonodemonitor
-sudo docker run -d --name NanoNodeMonitor -p 80:80 -v /opt --restart=unless-stopped nanotools/nanonodemonitor
+sudo docker run -d --name NanoNodeMonitor -p 80:80 -v ~:/opt --restart=unless-stopped nanotools/nanonodemonitor
 
 
 #Configure Command Line Alias
 echo '
 #Rai/Nano Command Alias
-alias rai="sudo docker exec Nanonode /usr/bin/rai_node"' >> ~/.bashrc
-source ~/.bashrc
+alias rai="sudo docker exec Nanonode /usr/bin/rai_node"' >> .bashrc
+source .bashrc
 
 #Configure Nano wallet
 WalletResponse=$(curl -d '{ "action" : "wallet_create" }' [::1]:7076)
@@ -44,7 +44,7 @@ HostName=$(hostname)
 
 
 #Configure Node Monitor
-cd /root/nanoNodeMonitor
+cd /nanoNodeMonitor
 sudo cp config.php config.orig.php
 sudo rm config.php
 echo '<?php
