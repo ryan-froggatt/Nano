@@ -82,8 +82,8 @@
                         "name": "Inbound_SSH_Any",
                         "properties": {
                             "description": "Inbound SSH from Any",
-                            "protocol": "*",
-                            "sourcePortRange": "22",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
                             "destinationPortRange": "22",
                             "sourceAddressPrefix": "*",
                             "destinationAddressPrefix": "*",
@@ -96,8 +96,8 @@
                         "name": "Inbound_HTTP_Any",
                         "properties": {
                             "description": "Inbound HTTP from Any",
-                            "protocol": "*",
-                            "sourcePortRange": "80",
+                            "protocol": "Tcp",
+                            "sourcePortRange": "*",
                             "destinationPortRange": "80",
                             "sourceAddressPrefix": "*",
                             "destinationAddressPrefix": "*",
