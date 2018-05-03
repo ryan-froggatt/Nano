@@ -28,11 +28,6 @@ module "security_groups" {
   nano_vpc_id = "${module.vpc.nano_vpc_id}"
 }
 
-#module "s3" {
-#  source = "./storage/s3"
-#  region = "${var.aws_region}"
-#}
-
 module "instances" {
   source = "./instances"
   nano_sg_id = "${module.security_groups.nano_sg_id}"
