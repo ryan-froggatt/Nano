@@ -11,6 +11,8 @@ This template creates an Ubuntu Virtual Machine running the Docker Containers:<b
 Nano Node (nanocurrency/nano)<br/>
 Nano Node Monitor (nanotools/nanonodemonitor)<br/>
 WatchTower (v2tec/watchtower)<br/>
+<br/>
+Please remove SSH security rule from the Network Security Group once you have obtained your seed.<br/>
 
 ![Diagram](/Images/AzureSolution.png)
 
@@ -24,6 +26,8 @@ This template creates an Ubuntu EC2 Instance running the Docker Containers:<br/>
 Nano Node (nanocurrency/nano)<br/>
 Nano Node Monitor (nanotools/nanonodemonitor)<br/>
 WatchTower (v2tec/watchtower)<br/>
+<br/>
+Please remove SSH security rule from the Security Group once you have obtained your seed.<br/>
 
 ![Diagram](/Images/AWSSolution.png)
 
