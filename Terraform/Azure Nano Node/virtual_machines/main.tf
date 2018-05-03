@@ -40,7 +40,7 @@ resource "azurerm_virtual_machine" "nano_vm" {
     name              = "Nano_OS_Disk"
     caching           = "ReadWrite"
     create_option     = "FromImage"
-    managed_disk_type = "Standard_LRS"
+    managed_disk_type = "Premium_LRS"
   }
 
   os_profile {

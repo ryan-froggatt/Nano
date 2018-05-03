@@ -3,7 +3,7 @@ provider "azurerm" {}
 
 # Create a resource group
 resource "azurerm_resource_group" "nano_rg" {
-  name     = "Nano_Test"
+  name     = "Nano"
   location = "${var.az_location}"
 }
 

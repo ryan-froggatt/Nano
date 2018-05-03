@@ -11,12 +11,12 @@ variable "vm_name" {
 
 variable "vm_size" {
   description = "Nano Virtual Machine Size"
-  default     = "Standard_A1"
+  default     = "Standard_D2s_v3"
 }
 
 variable "vm_user" {
   description = "Admin username for Nano Virtual Machine"
-  default     = "Standard_D2s_v3"
+  default     = "nano-user"
 }
 
 variable "vm_password" {
