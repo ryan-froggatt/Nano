@@ -12,7 +12,7 @@ Nano Node (nanocurrency/nano)<br/>
 Nano Node Monitor (nanotools/nanonodemonitor)<br/>
 WatchTower (v2tec/watchtower)<br/>
 <br/>
-Please remove SSH security rule from the Network Security Group once you have obtained your seed.<br/>
+IMPORTANT - Please remove SSH security rule from the Network Security Group once you have obtained your seed.<br/>
 
 ![Diagram](/Images/AzureSolution.png)
 
@@ -27,7 +27,7 @@ Nano Node (nanocurrency/nano)<br/>
 Nano Node Monitor (nanotools/nanonodemonitor)<br/>
 WatchTower (v2tec/watchtower)<br/>
 <br/>
-Please remove SSH security rule from the Security Group once you have obtained your seed.<br/>
+IMPORTANT - Please remove SSH security rule from the Security Group once you have obtained your seed.<br/>
 
 ![Diagram](/Images/AWSSolution.png)
 
