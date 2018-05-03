@@ -1,7 +1,7 @@
 # Specify the provider and access details - By Default this uses AWS CLI Credentials if none are specified
 provider "aws" {
   region = "${var.aws_region}"
-  shared_credentials_file = "/Users/rfroggatt/.aws/credentials"
+  shared_credentials_file = "/path/to/credentials/file"
   profile                 = "terraform"
 }
 
