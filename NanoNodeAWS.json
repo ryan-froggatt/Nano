@@ -185,8 +185,8 @@
                             "", [
                                 "#!/bin/bash -xe\n",
                                 "cd /root \n",
-                                "wget https://raw.githubusercontent.com/ryan-froggatt/Nano/master/NanoNodeInstall.sh \n",
-                                "sh NanoNodeInstall.sh"
+                                "wget https://raw.githubusercontent.com/ryan-froggatt/Nano/master/easynanonode-bootstrap.sh \n",
+                                "sh easynanonode-bootstrap.sh"
                             ]
                         ]
                     }

@@ -54,7 +54,7 @@
         "virtualNetworkId": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('virtualNetworkId'),'/subnets/', variables('subnetName'))]",
         "networkSecurityGroup": "[concat(parameters('vmName'),'-nsg')]",
-        "pipName": "[concat(parameters('vmName'), '-PIP')]"
+        "pipName": "[concat(parameters('vmName'), '-pip')]"
     },
     "resources": [
         {
@@ -137,7 +137,7 @@
             }
         },
         {
-            "name": "[concat(parameters('vmName'), '-PIP')]",
+            "name": "[concat(parameters('vmName'), '-pip')]",
             "type": "Microsoft.Network/publicIPAddresses",
             "apiVersion": "2017-10-01",
             "location": "[resourceGroup().location]",
@@ -232,9 +232,9 @@
                 "autoUpgradeMinorVersion": true,
                 "settings": {
                     "fileUris": [
-                        "https://raw.githubusercontent.com/ryan-froggatt/Nano/master/NanoNodeInstall.sh"
+                        "https://raw.githubusercontent.com/ryan-froggatt/Nano/master/easynanonode-bootstrap.sh"
                     ],
-                    "commandToExecute": "sh NanoNodeInstall.sh"
+                    "commandToExecute": "sh easynanonode-bootstrap.sh"
                 }
             }
         }

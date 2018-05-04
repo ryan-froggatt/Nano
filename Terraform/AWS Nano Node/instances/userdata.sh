@@ -10,5 +10,5 @@
 # BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 # License for the specific language governing permissions and limitations under the License.
 cd /root
-wget https://raw.githubusercontent.com/ryan-froggatt/Nano/master/NanoNodeInstall.sh
-sh NanoNodeInstall.sh
+wget https://raw.githubusercontent.com/ryan-froggatt/Nano/master/easynanonode-bootstrap.sh
+sh easynanonode-bootstrap.sh
