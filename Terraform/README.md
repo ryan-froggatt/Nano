@@ -21,3 +21,11 @@ Guide for logging in via the Azure CLI can be found at - https://www.terraform.i
 **DigitalOcean**  
 To deploy to DigitalOcean you just create an API token and specify this in the top level variables.tf file.
 Guide to create a API token can be found at  - https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2 
+
+**Guide**  
+Deploying the modules can be broken down in to 5 easy steps:  
+- Clone GitHub Respository.  
+- Update your access credentials in the module as described above.  
+- Change Directory to the Terraform Module you wish to deploy.  
+- Run the command 'terraform init'  
+- Run the command 'terraformapply'  
