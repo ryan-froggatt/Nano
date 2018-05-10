@@ -28,4 +28,4 @@ Deploying the modules can be broken down in to 5 easy steps:
 - Update your access credentials in the module as described above.  
 - Change Directory to the Terraform Module you wish to deploy.  
 - Run the command 'terraform init'  
-- Run the command 'terraformapply'  
+- Run the command 'terraform apply'  
