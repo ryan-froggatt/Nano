@@ -1,0 +1,101 @@
+#
+# Deploy nano node along with node monitor software.
+#
+
+# ------------------- Ingress ------------------- #
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "nano-ingress"
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    certmanager.k8s.io/cluster-issuer: lets-encrypt
+spec:
+  tls:
+  - hosts:
+      # !CHANGE THIS! To match your real DNS name.
+    - nano.cloudpea.co.uk
+    secretName: tls-secret
+  rules:
+          # !CHANGE THIS! To match your real DNS name.
+  - host: nano.cloudpea.co.uk
+    http:
+      paths:
+      - path: /nano
+        backend:
+          serviceName: nano-svc
+          servicePort: 80
+
+---
+
+# ------------------- Service ------------------- #
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nano-svc
+  labels:
+    name: nano-svc
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8000
+  clusterIP: None
+  selector:
+    app: nano
+
+---
+
+# ------------------- StatefulSet ------------------- #
+
+kind: StatefulSet
+apiVersion: apps/v1
+metadata:
+  name: nano
+  labels:
+    app: nano
+    role: crypto
+spec:
+  serviceName: nano-svc
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nano
+  template:
+    metadata:
+      labels:
+        app: nano
+        role: crypto
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nano-node
+        image: nanocurrency/nano
+        ports:
+          - containerPort: 7075
+          - containerPort: 7076
+        volumeMounts:
+          - name: nano-persistent-storage
+            mountPath: /root
+      - name: nano-monitor
+        image: nanotools/nanonodemonitor
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+         - name: nano-persistent-storage
+           mountPath: /opt
+
+  volumeClaimTemplates:
+    - metadata:
+        name: nano-persistent-storage
+        annotations:
+          volume.beta.kubernetes.io/storage-class: azure-premium
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 32Gi
