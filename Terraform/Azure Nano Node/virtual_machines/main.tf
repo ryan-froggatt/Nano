@@ -66,8 +66,8 @@ resource "azurerm_virtual_machine_extension" "nano_vm_extension" {
 
   settings = <<SETTINGS
       {
-        "fileUris": ["https://raw.githubusercontent.com/ryan-froggatt/Nano/master/NanoNodeInstall.sh"],
-        "commandToExecute": "sh NanoNodeInstall.sh"
+        "fileUris": ["https://raw.githubusercontent.com/ryan-froggatt/Nano/master/easynanonode-bootstrap.sh"],
+        "commandToExecute": "sh easynanonode-bootstrap.sh"
       }
   SETTINGS
 }
